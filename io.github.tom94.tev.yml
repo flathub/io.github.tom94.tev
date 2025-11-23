@@ -17,16 +17,17 @@ modules:
   - name: tev
     buildsystem: cmake-ninja
     config-opts:
-      - -DTEV_DEPLOY=1
       - -DCMAKE_BUILD_TYPE=Release
+      - -DTEV_CREATE_METAINFO=1
+      - -DTEV_DEPLOY=1
       - -DTEV_LINUX_REVERSE_DNS_APP_ID=1
     sources:
       - type: git
         url: https://github.com/Tom94/tev.git
-        tag: v2.6.0
-        commit: 178993f79907bc52db265097fd6b0d78cb1c2e90
+        tag: v2.6.1
+        commit: ba99730838fe93b1e84c7855f119f30aad084a30
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
       - type: patch
-        path: 0001-Add-release-date-to-MetaInfo.patch
+        path: 0001-remove-metainfo-validate-on-build.patch

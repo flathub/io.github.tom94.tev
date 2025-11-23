@@ -5,13 +5,23 @@ sdk: org.freedesktop.Sdk
 command: tev
 
 finish-args:
-  # X11 + XShm access
-  - --share=ipc
-  - --socket=fallback-x11
+  # GPU access for OpenGL rendering
   - --device=dri
+  # tev prefers Wayland if available and should fallback to X11 only if necessary
+  - --socket=fallback-x11
   - --socket=wayland
-  # Full network access to enable the tev's IPC
-  # - --share=network
+  # Required for good X11 performance (see https://docs.flatpak.org/en/latest/sandbox-permissions.html#id1)
+  - --share=ipc
+  # Network access is required for tev's IPC server
+  # - images opened by a new instance will be sent to an existing instance
+  # - remote control by compatible rendering software (e.g. PBRTv4)
+  # - remote control via Python bindings (typically used by researchers)
+  - --share=network
+  # Host filesystem access is required for
+  # - opening images via the CLI (e.g. `tev my-images/*.exr`)
+  # - monitoring opened files for changes and auto-reloading them
+  # - GLFW's cursor theme loading (cursor is wrong without this)
+  # - --filesystem=host:ro
 
 modules:
   - name: tev

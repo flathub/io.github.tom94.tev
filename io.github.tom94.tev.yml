@@ -5,13 +5,13 @@ sdk: org.freedesktop.Sdk
 command: tev
 
 finish-args:
-  # X11 + XShm access
   - --share=ipc
-  - --socket=fallback-x11
   - --device=dri
   - --socket=wayland
-  # Full network access to enable the tev's IPC
-  # - --share=network
+  - --socket=fallback-x11
+  # Optional permissions. Disabled by default for security reasons.
+  # - --share=network # Network access enables tev's IPC from remote hosts.
+  # - --filesystem=host:ro # Read-only filesystem access enables tev's CLI and file watching features.
 
 modules:
   - name: tev
@@ -24,10 +24,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Tom94/tev.git
-        tag: v2.6.1
-        commit: ba99730838fe93b1e84c7855f119f30aad084a30
+        tag: v2.6.2
+        commit: 6bb455d7ff610bca93ed8f2cc71fa81fe7591a05
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-      - type: patch
-        path: 0001-remove-metainfo-validate-on-build.patch

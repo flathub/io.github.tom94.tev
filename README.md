@@ -6,7 +6,7 @@ This repo hosts the flatpak version of [tev](https://github.com/tom94/tev),
 available at [Flathub](https://flathub.org/en/apps/io.github.tom94.tev).
 
 As a safe, sandboxed flatpak, **tev** comes *without* network and filesystem access by default.
-However, **tev** has several features that work best with network and filesystem permissions enabled.
+However, **tev** has several features that only work with network and read-only filesystem permissions enabled.
 
 You can use [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal) to manage the permissions via a GUI, or
 use the following command line
@@ -16,13 +16,11 @@ flatpak override --user --share=network --filesystem=host:ro io.github.tom94.tev
 
 Enabling these permissions unlocks the following features:
 
-## Network access
+## Remote control over the network
 
-**tev** can communicate with other instances running on the same machine. For example,
-if **tev** is already running and you open another image, it will show up in the existing
-instance instead of opening a new window.
+Compatible rendering software (like [PBRTv4](https://github.com/mmp/pbrt-v4)) can send rendered images directly to a running instance of **tev**.
+This is useful when rendering images on server clusters or in cloud environments where you don't have direct access to a graphical user interface.
 
-Another use case is remote control: compatible rendering software (like [PBRTv4](https://github.com/mmp/pbrt-v4)) can send rendered images directly to a running instance of **tev**.
 There are also SDKs for various programming languages that allow you to send images and vector graphics annotations to **tev** from your own software.
 - [C/C++](https://github.com/westlicht/tevclient), [Python](https://pypi.org/project/tevclient/), [Rust](https://crates.io/crates/tev_client)
 

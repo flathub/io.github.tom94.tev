@@ -29,7 +29,4 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-      # Fixup for flatpak build environment for v2.8.0 (remove in next release)
-      - type: patch
-        path: 2.8.0-fix-build.patch
 

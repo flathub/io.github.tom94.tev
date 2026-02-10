@@ -24,12 +24,9 @@ modules:
     sources:
       - type: git
         url: https://github.com/Tom94/tev.git
-        tag: v2.8.0
-        commit: 0a6d5a7d620bafa99143ce3c891bead1b480eeb4
+        tag: v2.8.1
+        commit: 89c7af16739c556a432a8ffce6d49fc68e8b5696
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-      # Fixup for flatpak build environment for v2.8.0 (remove in next release)
-      - type: patch
-        path: 2.8.0-fix-build.patch
-        
+

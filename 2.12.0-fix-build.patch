@@ -1,0 +1,30 @@
+From 8b6ac6d2db88acf8fffb823e4635a87de1d6801c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Thomas=20M=C3=BCller?= <git@tom94.net>
+Date: Fri, 15 May 2026 21:19:42 +0200
+Subject: [PATCH] fix: build does not require separate directory
+
+---
+ dependencies/cfitsio/CMakeLists.txt | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/dependencies/cfitsio/CMakeLists.txt b/dependencies/cfitsio/CMakeLists.txt
+index e2d5bd4..bd03354 100755
+--- a/dependencies/cfitsio/CMakeLists.txt
++++ b/dependencies/cfitsio/CMakeLists.txt
+@@ -2,13 +2,6 @@
+ # CFITSIO CMakeLists.txt
+ #==============================================================================
+ 
+-# Ensure that build directory is not the source directory:
+-IF(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+-	message(FATAL_ERROR
+-		"Please create a separate directory for building CFITSIO."
+-		)
+-ENDIF()
+-
+ CMAKE_MINIMUM_REQUIRED(VERSION 3.15)
+ 
+ # Suppress warning about WIN32 no longer being defined on Cygwin:
+-- 
+2.53.0
+

@@ -24,11 +24,9 @@ modules:
     sources:
       - type: git
         url: https://github.com/Tom94/tev.git
-        tag: v2.12.0
-        commit: 39146ee9064464b75f8e78c93b82e9974f64fa53
+        tag: v2.12.1
+        commit: 0ce364158fa442ba85682c23fe0620dc906e35e9
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-      - type: patch
-        path: 2.12.0-fix-build.patch
 

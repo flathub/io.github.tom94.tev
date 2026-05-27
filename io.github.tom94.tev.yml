@@ -24,8 +24,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Tom94/tev.git
-        tag: v2.12.1
-        commit: 0ce364158fa442ba85682c23fe0620dc906e35e9
+        tag: v2.12.2
+        commit: 1412b0bed110464f6f0f528e6799230fbbcc9251
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
